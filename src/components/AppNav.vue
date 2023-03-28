@@ -3,6 +3,17 @@ export default{
     data() {
         return{
 
+            links: ["carte", "prodotti", "eventi", "gioca", "novità"],
+
+            activeIndex: 0,
+            
+        }
+    },
+
+    methods: {
+
+        activeLink(index){
+            this.activeIndex = index; 
         }
     }
 }
@@ -14,13 +25,21 @@ export default{
             <div id="logo-container">
                 <img src="/img/logo.svg" alt="">
             </div>
+            <div id="link-container">
+                <ul>
+                    <li v-for="(link, index) in links" @click="activeLink(index)" :class="index == activeIndex ? 'active' : ''"> {{ link.toUpperCase() }} </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
 
 <style scoped lang="scss">
 #container{
+    position: relative;
+
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -35,6 +54,26 @@ export default{
 
         img{
             width: 100%;
+        }
+    }
+
+    #link-container{
+        position: absolute;
+        right: 0px;
+        
+        li{
+            padding: 6px 50px;
+
+            height: calc(100% / 5);
+
+            font-weight: bold;
+            font-size: 1.6em;
+
+            cursor: pointer;
+
+            &:hover{
+                color: #f0533f;
+            }
         }
     }
 }
