@@ -23,7 +23,7 @@ export default{
         <div class="info" v-show="hover" >
             <span class="info-title">Name:</span> {{ card.name }} <br>
             <span class="info-title">Price:</span> {{ card.card_prices[0].amazon_price }} € <br>
-            <span class="info-title">Type:</span> {{ card.frameType }}
+            <span class="info-title">Type:</span> {{ card.frameType }} <br>
         </div>
 
 
@@ -45,7 +45,7 @@ export default{
 
             box-shadow: 8px 8px 10px rgba(0,0,0, .4);
 
-            transition: all .3s ease-in-out;
+            transition: all .2s ease-in-out;
 
             &:hover{
                 transform: scale(0.7);
