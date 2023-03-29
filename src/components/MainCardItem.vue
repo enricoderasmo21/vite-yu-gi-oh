@@ -21,9 +21,9 @@ export default{
             <img :src="card.card_images[0].image_url" alt="">
         </div>
         <div class="info" v-show="hover" >
-            <span class="info-title">Name:</span> {{ card.name }} <br>
-            <span class="info-title">Price:</span> {{ card.card_prices[0].amazon_price }} € <br>
-            <span class="info-title">Type:</span> {{ card.frameType }} <br>
+            <span class="info-title">Nome:</span> {{ card.name }} <br>
+            <span class="info-title">Prezzo:</span> {{ card.card_prices[0].amazon_price }} € <br>
+            <span class="info-title">Tipo:</span> {{ card.frameType }} <br>
         </div>
 
 
