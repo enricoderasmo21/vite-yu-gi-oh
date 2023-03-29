@@ -18,7 +18,7 @@ export default{
 
     created() {
 
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) => {
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=1000&offset=0').then((res) => {
 
             console.log(res.data.data);
             this.store.cards = res.data.data;
@@ -29,11 +29,12 @@ export default{
 
 <template>
     <main>
-        <div id="loading" v-if="store.cards.length < 50">
-            Loading...
-        </div>
-        <div id="cards-container" v-else>
+        
+        <div id="cards-container" v-if="store.cards.length > 0">
             <MainCardItem v-for="card in store.cards" :card="card"></MainCardItem>
+        </div>
+        <div id="loading" v-else>
+            Loading...
         </div>
     </main>
 </template>
@@ -41,7 +42,7 @@ export default{
 <style scoped lang="scss">
 #loading{
     padding-top: 100px;
-    
+
     text-align: center;
 
     font-weight: bold;

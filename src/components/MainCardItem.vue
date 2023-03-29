@@ -35,7 +35,7 @@ export default{
 .card{
     position: relative;
 
-    width: calc(100% / 4 - 30px);
+    width: calc(100% / 4 - 30px / 4 * 3);
 
     .img-container{
         width: 100%;
