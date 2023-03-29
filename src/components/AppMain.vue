@@ -1,6 +1,7 @@
 <script>
 import MainCardItem from './MainCardItem.vue';
 import MainSearchItem from './MainSearchItem.vue';
+import MainResItem from './MainResItem.vue';
 
 import axios from "axios";
 import {store} from "../store.js"
@@ -15,7 +16,8 @@ export default{
     
     components: {
     MainCardItem,
-    MainSearchItem
+    MainSearchItem,
+    MainResItem
     },
     
     created() {
@@ -40,6 +42,7 @@ export default{
                 axios.get(apiNewString).then((res) => {
                     
                     this.store.cards = res.data.data;
+                    this.store.click = true;
                 });
             }
         }
@@ -49,7 +52,10 @@ export default{
 
 <template>
     <main>
+        
         <MainSearchItem @searchCard="search()"></MainSearchItem>
+        <MainResItem></MainResItem>
+
         
         <div id="cards-container" v-if="store.cards.length > 0">
             <MainCardItem v-for="card in store.cards" :card="card"></MainCardItem>
@@ -61,6 +67,7 @@ export default{
 </template>
 
 <style scoped lang="scss">
+
 #loading{
     padding-top: 100px;
 

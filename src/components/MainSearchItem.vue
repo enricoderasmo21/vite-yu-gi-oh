@@ -15,16 +15,20 @@ export default{
 
 <template>
 
-    <div id="search-title">RICERCA CARTE</div>
-
-    <div id="search-container">
-        <input id="search-bar" v-model="store.cardName" @keyup.enter="$emit('searchCard')" type="text" placeholder="Inserisci una parola chiave...">
-        <button id="search-btn" @click="$emit('searchCard')">CERCA</button>
+    <div>
+        
+        <div id="search-title">RICERCA CARTE</div>
+        <div id="search-container">
+            <input id="search-bar" v-model="store.cardName" @keyup.enter="$emit('searchCard')" type="text" placeholder="Inserisci una parola chiave...">
+            <button id="search-btn" @click="$emit('searchCard')">CERCA</button>
+        </div>
     </div>
+
    
 </template>
 
 <style scoped lang="scss">
+
 #search-title{
     padding-top: 30px;
     padding-left: 50px;
