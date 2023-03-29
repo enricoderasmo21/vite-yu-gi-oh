@@ -44,6 +44,9 @@ export default{
                     this.store.cards = res.data.data;
                     this.store.click = true;
                 });
+            } else {
+
+                alert("Inserisci un nome nella ricerca")
             }
         }
     }
