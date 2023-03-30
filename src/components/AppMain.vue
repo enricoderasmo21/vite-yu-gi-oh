@@ -43,10 +43,24 @@ export default{
                     
                     this.store.cards = res.data.data;
                     this.store.click = true;
+
+                }).catch((err) => {
+
+                    if(err.response.status == 400) {
+
+                        this.store.cards = [];
+                        this.store.click = true;
+                    };
                 });
+
             } else {
 
-                alert("Inserisci un nome nella ricerca")
+                axios.get(this.store.APIcall).then((res) => {
+                    
+                    console.log(res.data.data);
+                    this.store.cards = res.data.data;
+                });
+                    
             }
         }
     }
@@ -60,7 +74,7 @@ export default{
         <MainResItem></MainResItem>
 
         
-        <div id="cards-container" v-if="store.cards.length > 0">
+        <div id="cards-container" v-if="store.cards.length > 0 || store.cards.length == 0">
             <MainCardItem v-for="card in store.cards" :card="card"></MainCardItem>
         </div>
         <div id="loading" v-else>

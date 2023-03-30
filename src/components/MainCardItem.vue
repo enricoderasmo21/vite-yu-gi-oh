@@ -48,6 +48,9 @@ export default{
         width: 100%;
 
         img{
+            position: relative;
+            z-index: 2;
+            
             width: 100%;
 
             box-shadow: 8px 8px 10px rgba(0,0,0, .4);
